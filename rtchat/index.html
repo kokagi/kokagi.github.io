@@ -46,8 +46,8 @@ $(document).ready(function(){
       addLog("peer.onOpen");
       // メッセージを受信
       conn.on("data", function(data) {
-        addLog("#" + conn.peer + ">> " + data);
-        messageNotificationFunc(data);
+        addLog("#" + conn.peer + ">> " + $.escapeHTML(data));
+        messageNotificationFunc($.escapeHTML(data));
       });
     });
   }
@@ -80,7 +80,7 @@ $(document).ready(function(){
 <div><input type="text" id="messageBox" /><input type="button" value="送信" id="submitButton" /> <input type="button" value="通知" id="request-permission" /></div>
 <ul id="log"></ul>
 <h2>めも</h2>
-<p>WebRTC(SkyWay)で送信したやつをChromeの通知でポコッする実験です。まだkey届いてないんでローカル用keyのままですが。<br />
+<p>WebRTC(SkyWay)で送信したやつをChromeの通知でポコッする実験です、動作確認程度なので見た目と処理が適当ですが。<br />
 受信側があらかじめ通知ボタンで通知を許可して、http://localhost/rtchat/#[id]で接続した送信側がメッセージを送ると受信側でポコッします。たぶん。<br />
 メッセージをバイナリで送ったりしないと文字数上限があるらしいけどうまくいかなかったので適当です。<br />
 参考url：<br />
