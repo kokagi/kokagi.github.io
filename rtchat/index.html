@@ -54,7 +54,7 @@ $(document).ready(function(){
   
   var peer = new Peer({key: 'faf307ca-d110-11e3-bc4a-8d9921cf0e5e'});
   peer.on('open', function(id) {
-    addLog("peer.onOpen: http://localhost/rtchat/#" + id);
+    addLog("peer.onOpen: http://" + location.host + "/rtchat/#" + id);
     
     peer.on("connection", function(conn) {
       addLog("peer.onConnection: ID=" + conn.peer);
