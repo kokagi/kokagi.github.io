@@ -46,8 +46,8 @@ $(document).ready(function(){
       addLog("peer.onOpen");
       // メッセージを受信
       conn.on("data", function(data) {
-        addLog("#" + conn.peer + ">> " + $.escapeHTML(data));
-        messageNotificationFunc($.escapeHTML(data));
+        addLog("#" + conn.peer + ">> " + $("<div>").text(data).html());
+        messageNotificationFunc($("<div>").text(data).html());
       });
     });
   }
